@@ -10,7 +10,6 @@ import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import org.jooq.DSLContext;
 import org.jooq.Record2;
 import org.jooq.SQLDialect;
-import org.jooq.meta.derby.sys.Sys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
