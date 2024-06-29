@@ -67,6 +67,7 @@ public class EmbedsManager {
                 Message msg = chan.retrieveMessageById(msgId).submit().exceptionally((ex) -> null).get();
                 if (msg != null) {
                     msg.editMessageEmbeds(embed).queue();
+                    return;
                 }
             }
             Message msg = chan.sendMessageEmbeds(embed).complete();
