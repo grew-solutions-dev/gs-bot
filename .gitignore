@@ -3,8 +3,10 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+## Personal Ignor ##
 .env
-debug.env
+GDN.env
+
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
