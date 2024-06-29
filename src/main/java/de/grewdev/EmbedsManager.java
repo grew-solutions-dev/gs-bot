@@ -87,5 +87,6 @@ public class EmbedsManager {
     }
 
     public void createOrUpdateEmbeds() {
+        createOrUpdateEmbed("ruleEmbed","fixedEmbeds", System.getenv("CHAN_RULES"),new RuleEmbed());
     }
 }
