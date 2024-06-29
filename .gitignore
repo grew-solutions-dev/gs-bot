@@ -4,6 +4,7 @@ target/
 !**/src/test/**/target/
 
 .env
+debug.env
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
