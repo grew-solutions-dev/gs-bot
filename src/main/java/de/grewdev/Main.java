@@ -1,5 +1,6 @@
 package de.grewdev;
 
+import de.grewdev.events.MemberEventListener;
 import de.grewdev.events.ReadyEventListener;
 import de.grewdev.utils.TimeStamper;
 import net.dv8tion.jda.api.JDA;
@@ -37,6 +38,7 @@ public class Main {
 
         //add ListenerEvents
         builder.addEventListeners(new ReadyEventListener());
+        builder.addEventListeners(new MemberEventListener());
 
         JDA jda;
         try {
