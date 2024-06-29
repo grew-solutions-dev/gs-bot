@@ -23,6 +23,7 @@ public class UserLeftEmbed extends MessageEmbed {
                 null,
                 null,
                 null,
-                Collections.singletonList(new Field("New member count: " + server.getMemberCount(), "", false)));
+                Collections.singletonList(new Field("New member count: " + server.getMemberCount(), "", false))
+        );
     }
 }

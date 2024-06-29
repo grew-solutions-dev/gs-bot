@@ -24,6 +24,7 @@ public class UserJoinEmbed extends MessageEmbed {
                 null,
                 null,
                 Collections.singletonList(new Field("", "Please read our rules <#" + System.getenv("CHAN_RULES") + "> and verify yourself." +
-                        "\nBecause only then can you do other great things.", false)));
+                        "\nBecause only then can you do other great things.", false))
+        );
     }
 }
