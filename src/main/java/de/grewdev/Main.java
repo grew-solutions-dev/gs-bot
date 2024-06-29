@@ -1,5 +1,6 @@
 package de.grewdev;
 
+import ch.qos.logback.core.Appender;
 import de.grewdev.events.MemberEventListener;
 import de.grewdev.events.ReadyEventListener;
 import de.grewdev.events.MessageEventListener;
@@ -13,6 +14,7 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ch.qos.logback.classic.LoggerContext;
 
 import java.util.concurrent.ExecutionException;
 
@@ -45,7 +47,17 @@ public class Main {
 
         JDA jda;
         try {
-            jda = builder.build().awaitReady();
+            jda = builder.build();
+
+            //Init Discord Error Logger
+            LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
+            Appender<?> appender = loggerContext.getLogger("ROOT").getAppender("DISCORD");
+            if (appender instanceof BotErrorLogger discordAppender) {
+                discordAppender.setJda(jda);
+                discordAppender.setChannelId(System.getenv("CHAN_BOT_LOG"));
+            }
+
+            jda.awaitReady();
         } catch (InterruptedException e) {
             logger.error("Bot could not connect!");
             throw new RuntimeException(e);
@@ -54,7 +66,7 @@ public class Main {
         Runtime.getRuntime().addShutdownHook(
                 new Thread(() -> {
                     logger.info(TimeStamper.getTimestamp() + "Shutting down... sending last message...");
-                    TextChannel channel = jda.getTextChannelById(System.getenv("CHAN_BOT_INFO"));
+                    TextChannel channel = jda.getTextChannelById(System.getenv("CHAN_BOT_STATUS"));
                     if (channel != null) {
                         try {
                             channel.sendMessage(TimeStamper.getTimestamp() +  ":no_entry: Bot is offline ").submit().get();
