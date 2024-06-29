@@ -17,5 +17,6 @@ public class ReadyEventListener extends ListenerAdapter {
         }
 
         EmbedsManager embedsManager = new EmbedsManager(event.getJDA());
+        embedsManager.createOrUpdateEmbeds();
     }
 }
