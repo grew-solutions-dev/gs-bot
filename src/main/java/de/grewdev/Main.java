@@ -2,6 +2,7 @@ package de.grewdev;
 
 import de.grewdev.events.MemberEventListener;
 import de.grewdev.events.ReadyEventListener;
+import de.grewdev.events.MessageEventListener;
 import de.grewdev.utils.TimeStamper;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -28,6 +29,7 @@ public class Main {
         builder.enableIntents(GatewayIntent.GUILD_MEMBERS)
                 .enableIntents(GatewayIntent.GUILD_MESSAGES)
                 .enableIntents(GatewayIntent.DIRECT_MESSAGES)
+                .enableIntents(GatewayIntent.MESSAGE_CONTENT)
                 .enableIntents(GatewayIntent.GUILD_MESSAGE_REACTIONS);
 
         builder.setMemberCachePolicy(MemberCachePolicy.ALL);
@@ -39,6 +41,7 @@ public class Main {
         //add ListenerEvents
         builder.addEventListeners(new ReadyEventListener());
         builder.addEventListeners(new MemberEventListener());
+        builder.addEventListeners(new MessageEventListener());
 
         JDA jda;
         try {
