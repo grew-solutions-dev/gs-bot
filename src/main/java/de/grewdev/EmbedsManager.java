@@ -1,5 +1,6 @@
 package de.grewdev;
 
+import de.grewdev.embeds.LinksEmbed;
 import de.grewdev.embeds.RuleEmbed;
 import de.grewdev.utils.DatabaseConnection;
 import net.dv8tion.jda.api.JDA;
@@ -88,5 +89,6 @@ public class EmbedsManager {
 
     public void createOrUpdateEmbeds() {
         createOrUpdateEmbed("ruleEmbed","fixedEmbeds", System.getenv("CHAN_RULES"),new RuleEmbed());
+        createOrUpdateEmbed("linkEmbed","fixedEmbeds", System.getenv("CHAN_LINKS"),new LinksEmbed());
     }
 }
