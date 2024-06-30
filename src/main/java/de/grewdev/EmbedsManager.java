@@ -2,6 +2,7 @@ package de.grewdev;
 
 import de.grewdev.embeds.LinksEmbed;
 import de.grewdev.embeds.RuleEmbed;
+import de.grewdev.embeds.products.GrewVehicleshop;
 import de.grewdev.utils.DatabaseConnection;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Message;
@@ -90,5 +91,7 @@ public class EmbedsManager {
     public void createOrUpdateEmbeds() {
         createOrUpdateEmbed("ruleEmbed","fixedEmbeds", System.getenv("CHAN_RULES"),new RuleEmbed());
         createOrUpdateEmbed("linkEmbed","fixedEmbeds", System.getenv("CHAN_LINKS"),new LinksEmbed());
+
+        createOrUpdateEmbed("grewVehicleshop","productEmbeds", System.getenv("GREW_VEHICLESHOP"),new GrewVehicleshop());
     }
 }
