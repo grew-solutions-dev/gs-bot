@@ -1,6 +1,7 @@
 package de.grewdev.events;
 
 import de.grewdev.EmbedsManager;
+import de.grewdev.embeds.selfrole.SelfruleDevEmbed;
 import de.grewdev.embeds.selfrole.SelfruleLanguageEmbed;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.UserSnowflake;
@@ -33,6 +34,13 @@ public class MessageInteractionEventListener extends ListenerAdapter {
             }
         }
 
+        Message progEmbedMsg = embedsManager.createOrUpdateEmbed("devEmbed","selfRuleEmbeds", System.getenv("CHAN_SELFROLES"),new SelfruleDevEmbed());
+        if (progEmbedMsg != null) {
+            for (String s : Arrays.asList("<:php512:1256945801545125961>", "<:lua512:1256945793043005450>", "<:js512:1256945797577179247>", "<:java256:1256945795878354947>", "<:c512:1256945791327535115>", "<:nodejs512:1256945800425115770>", "<:mysql256:1256945794465140806>")) {
+                progEmbedMsg.addReaction(Emoji.fromFormatted(s)).queue();
+                allEmbedIds.put("devEmbed", progEmbedMsg.getId());
+            }
+        }
     }
 
     @Override
@@ -49,6 +57,39 @@ public class MessageInteractionEventListener extends ListenerAdapter {
 
                     case "\uD83C\uDDEC\uD83C\uDDE7": // English
                         event.getGuild().addRoleToMember(UserSnowflake.fromId(event.getMember().getId()), event.getGuild().getRoleById(System.getenv("ROLE_GB"))).queue();
+                        break;
+
+                    default:
+
+                }
+
+                switch (event.getEmoji().getFormatted()) {
+                    case "<:php512:1256945801545125961>": // PHP
+                        event.getGuild().addRoleToMember(UserSnowflake.fromId(event.getMember().getId()), event.getGuild().getRoleById(System.getenv("ROLE_PHP"))).queue();
+                        break;
+
+                    case "<:lua512:1256945793043005450>": // LUA
+                        event.getGuild().addRoleToMember(UserSnowflake.fromId(event.getMember().getId()), event.getGuild().getRoleById(System.getenv("ROLE_LUA"))).queue();
+                        break;
+
+                    case "<:js512:1256945797577179247>": // JavaScript
+                        event.getGuild().addRoleToMember(UserSnowflake.fromId(event.getMember().getId()), event.getGuild().getRoleById(System.getenv("ROLE_JS"))).queue();
+                        break;
+
+                    case "<:java256:1256945795878354947>": // Java
+                        event.getGuild().addRoleToMember(UserSnowflake.fromId(event.getMember().getId()), event.getGuild().getRoleById(System.getenv("ROLE_JAVA"))).queue();
+                        break;
+
+                    case "<:c512:1256945791327535115>": // C
+                        event.getGuild().addRoleToMember(UserSnowflake.fromId(event.getMember().getId()), event.getGuild().getRoleById(System.getenv("ROLE_CSHARP"))).queue();
+                        break;
+
+                    case "<:nodejs512:1256945800425115770>": // Node.js
+                        event.getGuild().addRoleToMember(UserSnowflake.fromId(event.getMember().getId()), event.getGuild().getRoleById(System.getenv("ROLE_NODEJS"))).queue();
+                        break;
+
+                    case "<:mysql256:1256945794465140806>": // MySQL
+                        event.getGuild().addRoleToMember(UserSnowflake.fromId(event.getMember().getId()), event.getGuild().getRoleById(System.getenv("ROLE_MYSQL"))).queue();
                         break;
 
                     default:
@@ -76,6 +117,38 @@ public class MessageInteractionEventListener extends ListenerAdapter {
 
                     default:
 
+                }
+
+                switch (event.getEmoji().getFormatted()) {
+                    case "<:php512:1256945801545125961>": // PHP
+                        event.getGuild().removeRoleFromMember(UserSnowflake.fromId(event.getMember().getId()), event.getGuild().getRoleById(System.getenv("ROLE_PHP"))).queue();
+                        break;
+
+                    case "<:lua512:1256945793043005450>": // LUA
+                        event.getGuild().removeRoleFromMember(UserSnowflake.fromId(event.getMember().getId()), event.getGuild().getRoleById(System.getenv("ROLE_LUA"))).queue();
+                        break;
+
+                    case "<:js512:1256945797577179247>": // JavaScript
+                        event.getGuild().removeRoleFromMember(UserSnowflake.fromId(event.getMember().getId()), event.getGuild().getRoleById(System.getenv("ROLE_JS"))).queue();
+                        break;
+
+                    case "<:java256:1256945795878354947>": // Java
+                        event.getGuild().removeRoleFromMember(UserSnowflake.fromId(event.getMember().getId()), event.getGuild().getRoleById(System.getenv("ROLE_JAVA"))).queue();
+                        break;
+
+                    case "<:c512:1256945791327535115>": // C
+                        event.getGuild().removeRoleFromMember(UserSnowflake.fromId(event.getMember().getId()), event.getGuild().getRoleById(System.getenv("ROLE_CSHARP"))).queue();
+                        break;
+
+                    case "<:nodejs512:1256945800425115770>": // Node.js
+                        event.getGuild().removeRoleFromMember(UserSnowflake.fromId(event.getMember().getId()), event.getGuild().getRoleById(System.getenv("ROLE_NODEJS"))).queue();
+                        break;
+
+                    case "<:mysql256:1256945794465140806>": // MySQL
+                        event.getGuild().removeRoleFromMember(UserSnowflake.fromId(event.getMember().getId()), event.getGuild().getRoleById(System.getenv("ROLE_MYSQL"))).queue();
+                        break;
+
+                    default:
                 }
             }
         }
