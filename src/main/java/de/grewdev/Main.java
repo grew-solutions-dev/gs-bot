@@ -1,6 +1,7 @@
 package de.grewdev;
 
 import ch.qos.logback.core.Appender;
+import de.grewdev.events.MessageInteractionEventListener;
 import de.grewdev.events.MemberEventListener;
 import de.grewdev.events.ReadyEventListener;
 import de.grewdev.events.MessageEventListener;
@@ -44,6 +45,7 @@ public class Main {
         builder.addEventListeners(new ReadyEventListener());
         builder.addEventListeners(new MemberEventListener());
         builder.addEventListeners(new MessageEventListener());
+        builder.addEventListeners(new MessageInteractionEventListener());
 
         JDA jda;
         try {
