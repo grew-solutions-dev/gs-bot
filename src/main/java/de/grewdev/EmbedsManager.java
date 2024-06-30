@@ -85,13 +85,16 @@ public class EmbedsManager {
         //create EmbedsTables
         createIfNotExistsEmbedTable("fixedEmbeds");
         createIfNotExistsEmbedTable("productEmbeds");
+        createIfNotExistsEmbedTable("selfRuleEmbeds");
         createIfNotExistsEmbedTable("otherEmbeds");
     }
 
     public void createOrUpdateEmbeds() {
+        //Fix Embed
         createOrUpdateEmbed("ruleEmbed","fixedEmbeds", System.getenv("CHAN_RULES"),new RuleEmbed());
         createOrUpdateEmbed("linkEmbed","fixedEmbeds", System.getenv("CHAN_LINKS"),new LinksEmbed());
 
+        //Products Embed
         createOrUpdateEmbed("grewVehicleshop","productEmbeds", System.getenv("GREW_VEHICLESHOP"),new GrewVehicleshop());
     }
 }
