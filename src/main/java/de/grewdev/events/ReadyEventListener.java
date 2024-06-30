@@ -7,8 +7,8 @@ import de.grewdev.embeds.products.GrewVehicleshop;
 import de.grewdev.utils.TimeStamper;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
-import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,10 +30,10 @@ public class ReadyEventListener extends ListenerAdapter {
         EmbedsManager embedsManager = EmbedsManager.getInstance(jda);
 
         //Fix Embed
-        embedsManager.createOrUpdateEmbed("ruleEmbed","fixedEmbeds", System.getenv("CHAN_RULES"),new RuleEmbed());
-        embedsManager.createOrUpdateEmbed("linkEmbed","fixedEmbeds", System.getenv("CHAN_LINKS"),new LinksEmbed());
+        embedsManager.createOrUpdateEmbed("ruleEmbed", "fixedEmbeds", System.getenv("CHAN_RULES"), new RuleEmbed());
+        embedsManager.createOrUpdateEmbed("linkEmbed", "fixedEmbeds", System.getenv("CHAN_LINKS"), new LinksEmbed());
 
         //Products Embed
-        embedsManager.createOrUpdateEmbed("grewVehicleshop","productEmbeds", System.getenv("GREW_VEHICLESHOP"),new GrewVehicleshop());
+        embedsManager.createOrUpdateEmbed("grewVehicleshop", "productEmbeds", System.getenv("GREW_VEHICLESHOP"), new GrewVehicleshop());
     }
 }

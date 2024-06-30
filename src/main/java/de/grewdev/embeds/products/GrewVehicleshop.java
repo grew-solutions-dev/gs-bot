@@ -1,12 +1,9 @@
 package de.grewdev.embeds.products;
 
-import ch.qos.logback.classic.spi.ILoggingEvent;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 
 import java.awt.*;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 public class GrewVehicleshop extends MessageEmbed {
 
@@ -26,7 +23,7 @@ public class GrewVehicleshop extends MessageEmbed {
                 null,
                 null,
                 Color.DARK_GRAY.getRGB(),
-                new Thumbnail("https://dunb17ur4ymx4.cloudfront.net/packages/images/dc253153f50c289e34b896d2ce67baa07c818ea3.png",null,0,0),
+                new Thumbnail("https://dunb17ur4ymx4.cloudfront.net/packages/images/dc253153f50c289e34b896d2ce67baa07c818ea3.png", null, 0, 0),
                 null,
                 null,
                 null,
@@ -41,11 +38,11 @@ public class GrewVehicleshop extends MessageEmbed {
                                         ":arrow_forward: [NativeUILua by Lua](https://github.com/Grewoo/NativeUILua)\n" +
                                         ":arrow_forward: [swt_notification](https://github.com/Switty6/swt_notifications)\n",
                                 false),
-                        new Field("Price", "5,00€€ (+VAT)",true),
-                        new Field("Current Version", "v1.1.1",true),
-                        new Field("WIKI", System.getenv("LINK_WIKI_URL") + "/grew_vehicleshop/1-installer",false),
-                        new Field("Shop-Page", System.getenv("LINK_STORE_URL") + "/package/5486221",false),
-                        new Field("Trailer", "coming-soon",false)
+                        new Field("Price", "5,00€ (+VAT)", true),
+                        new Field("Current Version", "v1.1.1", true),
+                        new Field("WIKI", System.getenv("LINK_WIKI_URL") + "/grew_vehicleshop/1-installer", false),
+                        new Field("Shop-Page", System.getenv("LINK_STORE_URL") + "/package/5486221", false),
+                        new Field("Trailer", "coming-soon", false)
                 )
         );
     }

@@ -1,10 +1,11 @@
 package de.grewdev;
 
+import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.core.Appender;
-import de.grewdev.events.MessageInteractionEventListener;
 import de.grewdev.events.MemberEventListener;
-import de.grewdev.events.ReadyEventListener;
 import de.grewdev.events.MessageEventListener;
+import de.grewdev.events.MessageInteractionEventListener;
+import de.grewdev.events.ReadyEventListener;
 import de.grewdev.utils.TimeStamper;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -15,7 +16,6 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ch.qos.logback.classic.LoggerContext;
 
 import java.util.concurrent.ExecutionException;
 
@@ -71,7 +71,7 @@ public class Main {
                     TextChannel channel = jda.getTextChannelById(System.getenv("CHAN_BOT_STATUS"));
                     if (channel != null) {
                         try {
-                            channel.sendMessage(TimeStamper.getTimestamp() +  ":no_entry: Bot is offline ").submit().get();
+                            channel.sendMessage(TimeStamper.getTimestamp() + ":no_entry: Bot is offline ").submit().get();
                         } catch (InterruptedException | ExecutionException e) {
                             throw new RuntimeException(e);
                         }

@@ -11,16 +11,16 @@ public class MemberEventListener extends ListenerAdapter {
     @Override
     public void onGuildMemberJoin(GuildMemberJoinEvent event) {
         TextChannel lobbychan = event.getJDA().getTextChannelById(System.getenv("CHAN_LOBBY"));
-        if ( lobbychan != null) {
-            lobbychan.sendMessageEmbeds(new UserJoinEmbed(event.getUser(),event.getGuild())).queue();
+        if (lobbychan != null) {
+            lobbychan.sendMessageEmbeds(new UserJoinEmbed(event.getUser(), event.getGuild())).queue();
         }
     }
 
     @Override
     public void onGuildMemberRemove(GuildMemberRemoveEvent event) {
         TextChannel lobbychan = event.getJDA().getTextChannelById(System.getenv("CHAN_LOBBY"));
-        if ( lobbychan != null) {
-            lobbychan.sendMessageEmbeds(new UserLeftEmbed(event.getUser(),event.getGuild())).queue();
+        if (lobbychan != null) {
+            lobbychan.sendMessageEmbeds(new UserLeftEmbed(event.getUser(), event.getGuild())).queue();
         }
     }
 }

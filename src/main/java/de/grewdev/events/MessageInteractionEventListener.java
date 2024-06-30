@@ -19,14 +19,14 @@ import java.util.HashMap;
 
 public class MessageInteractionEventListener extends ListenerAdapter {
     private static final Logger logger = LoggerFactory.getLogger(MessageInteractionEventListener.class);
-    private static HashMap<String, String> allEmbedIds = new HashMap<>();
+    private static final HashMap<String, String> allEmbedIds = new HashMap<>();
 
     @Override
     public void onReady(ReadyEvent event) {
         EmbedsManager embedsManager = EmbedsManager.getInstance(event.getJDA());
 
         // Create Selfrules Embed
-        Message languageEmbedMsg = embedsManager.createOrUpdateEmbed("languageEmbed","selfRuleEmbeds", System.getenv("CHAN_SELFROLES"),new SelfruleLanguageEmbed());
+        Message languageEmbedMsg = embedsManager.createOrUpdateEmbed("languageEmbed", "selfRuleEmbeds", System.getenv("CHAN_SELFROLES"), new SelfruleLanguageEmbed());
         if (languageEmbedMsg != null) {
             for (String s : Arrays.asList("\uD83C\uDDEC\uD83C\uDDE7", "\uD83C\uDDE9\uD83C\uDDEA")) {
                 languageEmbedMsg.addReaction(Emoji.fromFormatted(s)).queue();
@@ -34,7 +34,7 @@ public class MessageInteractionEventListener extends ListenerAdapter {
             }
         }
 
-        Message progEmbedMsg = embedsManager.createOrUpdateEmbed("devEmbed","selfRuleEmbeds", System.getenv("CHAN_SELFROLES"),new SelfruleDevEmbed());
+        Message progEmbedMsg = embedsManager.createOrUpdateEmbed("devEmbed", "selfRuleEmbeds", System.getenv("CHAN_SELFROLES"), new SelfruleDevEmbed());
         if (progEmbedMsg != null) {
             for (String s : Arrays.asList("<:php512:1256945801545125961>", "<:lua512:1256945793043005450>", "<:js512:1256945797577179247>", "<:java256:1256945795878354947>", "<:c512:1256945791327535115>", "<:nodejs512:1256945800425115770>", "<:mysql256:1256945794465140806>")) {
                 progEmbedMsg.addReaction(Emoji.fromFormatted(s)).queue();
@@ -48,8 +48,8 @@ public class MessageInteractionEventListener extends ListenerAdapter {
         TextChannel reactChan = event.getChannel().asTextChannel();
         String reactMsgId = event.getMessageId();
 
-        if (reactChan.getId().equals(System.getenv("CHAN_SELFROLES"))){
-            if(allEmbedIds.containsValue(reactMsgId)) {
+        if (reactChan.getId().equals(System.getenv("CHAN_SELFROLES"))) {
+            if (allEmbedIds.containsValue(reactMsgId)) {
                 switch (event.getEmoji().getFormatted()) {
                     case "\uD83C\uDDE9\uD83C\uDDEA": // German
                         event.getGuild().addRoleToMember(UserSnowflake.fromId(event.getMember().getId()), event.getGuild().getRoleById(System.getenv("ROLE_GER"))).queue();
@@ -93,7 +93,6 @@ public class MessageInteractionEventListener extends ListenerAdapter {
                         break;
 
                     default:
-
                 }
             }
         }
@@ -104,8 +103,8 @@ public class MessageInteractionEventListener extends ListenerAdapter {
         TextChannel reactChan = event.getChannel().asTextChannel();
         String reactMsgId = event.getMessageId();
 
-        if (reactChan.getId().equals(System.getenv("CHAN_SELFROLES"))){
-            if(allEmbedIds.containsValue(reactMsgId)) {
+        if (reactChan.getId().equals(System.getenv("CHAN_SELFROLES"))) {
+            if (allEmbedIds.containsValue(reactMsgId)) {
                 switch (event.getEmoji().getFormatted()) {
                     case "\uD83C\uDDE9\uD83C\uDDEA": // German
                         event.getGuild().removeRoleFromMember(UserSnowflake.fromId(event.getMember().getId()), event.getGuild().getRoleById(System.getenv("ROLE_GER"))).queue();
@@ -116,7 +115,6 @@ public class MessageInteractionEventListener extends ListenerAdapter {
                         break;
 
                     default:
-
                 }
 
                 switch (event.getEmoji().getFormatted()) {

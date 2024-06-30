@@ -3,9 +3,8 @@ package de.grewdev.embeds.selfrole;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 
 import java.awt.*;
-import java.util.Arrays;
 
-public class SelfruleLanguageEmbed extends MessageEmbed{
+public class SelfruleLanguageEmbed extends MessageEmbed {
     public SelfruleLanguageEmbed() {
         super(
                 null,

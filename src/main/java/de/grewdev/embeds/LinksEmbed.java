@@ -1,6 +1,5 @@
 package de.grewdev.embeds;
 
-import de.grewdev.utils.TimeStamper;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 
 import java.awt.*;
