@@ -45,6 +45,9 @@ public class Main {
         builder.addEventListeners(new MessageInteractionEventListener());
         builder.addEventListeners(new PrivateMessageListener());
 
+        CommandEventListener cmdEventListener = new CommandEventListener();
+        builder.addEventListeners(cmdEventListener);
+
         JDA jda;
         try {
             jda = builder.build();
