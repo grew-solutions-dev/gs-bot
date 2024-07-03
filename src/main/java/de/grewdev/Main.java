@@ -43,6 +43,7 @@ public class Main {
         builder.addEventListeners(new MemberEventListener());
         builder.addEventListeners(new MessageEventListener());
         builder.addEventListeners(new MessageInteractionEventListener());
+        builder.addEventListeners(new PrivateMessageListener());
 
         JDA jda;
         try {
