@@ -2,6 +2,7 @@ package de.grewdev;
 
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.core.Appender;
+import de.grewdev.cmds.AddCrewMemberCmd;
 import de.grewdev.events.*;
 import de.grewdev.utils.TimeStamper;
 import net.dv8tion.jda.api.JDA;
@@ -46,6 +47,7 @@ public class Main {
         builder.addEventListeners(new PrivateMessageListener());
 
         CommandEventListener cmdEventListener = new CommandEventListener();
+        cmdEventListener.registerCommand(new AddCrewMemberCmd());
         builder.addEventListeners(cmdEventListener);
 
         JDA jda;
