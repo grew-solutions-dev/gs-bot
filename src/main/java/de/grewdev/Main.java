@@ -2,10 +2,7 @@ package de.grewdev;
 
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.core.Appender;
-import de.grewdev.events.MemberEventListener;
-import de.grewdev.events.MessageEventListener;
-import de.grewdev.events.MessageInteractionEventListener;
-import de.grewdev.events.ReadyEventListener;
+import de.grewdev.events.*;
 import de.grewdev.utils.TimeStamper;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;

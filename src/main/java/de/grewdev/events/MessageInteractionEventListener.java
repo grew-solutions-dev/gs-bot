@@ -1,6 +1,6 @@
 package de.grewdev.events;
 
-import de.grewdev.EmbedsManager;
+import de.grewdev.utils.manager.EmbedsManager;
 import de.grewdev.embeds.selfrole.SelfruleDevEmbed;
 import de.grewdev.embeds.selfrole.SelfruleLanguageEmbed;
 import net.dv8tion.jda.api.entities.Message;

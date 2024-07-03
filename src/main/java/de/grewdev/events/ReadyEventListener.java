@@ -1,6 +1,6 @@
 package de.grewdev.events;
 
-import de.grewdev.EmbedsManager;
+import de.grewdev.utils.manager.EmbedsManager;
 import de.grewdev.embeds.LinksEmbed;
 import de.grewdev.embeds.RuleEmbed;
 import de.grewdev.embeds.products.*;

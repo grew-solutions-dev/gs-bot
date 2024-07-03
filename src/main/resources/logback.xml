@@ -8,8 +8,9 @@
     <appender name="DISCORD" class="de.grewdev.BotErrorLogger">
         <jda>${JDA_INSTANCE}</jda>
         <channelId>YOUR_CHANNEL_ID</channelId>
-
     </appender>
+
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
 
     <root level="error">
         <appender-ref ref="DISCORD" />

@@ -1,4 +1,4 @@
-package de.grewdev;
+package de.grewdev.utils.manager;
 
 import de.grewdev.utils.DatabaseConnection;
 import net.dv8tion.jda.api.JDA;
