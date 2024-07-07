@@ -28,6 +28,7 @@ public class CrewMemberCmd implements ICommandHandler {
                     new SubcommandData("remove", "Removes the crewmember for the DM write permissions")
                             .addOption(OptionType.USER, "user","Which crewmembers?", true,false),
 
+                    new SubcommandData("list", "Print the crewmember list for the DM write permissions")
                 );
     }
 
@@ -57,5 +58,14 @@ public class CrewMemberCmd implements ICommandHandler {
             event.reply("User was not removed").setEphemeral(true).complete();
             logger.error("User was not removed | {} | {}", addTargetMember.getEffectiveName(), addTargetMember.getId());
 
+        } else if (event.getSubcommandName().equals("list")) {
+            List<String> memberIds = CrewMemberManager.getInstance().getMemberIds();
+
+            if (memberIds.isEmpty()) {
+                event.reply("Crewmemberlist is empty").setEphemeral(true).complete();
+                return;
+            }
+            event.replyEmbeds(new CrewMemberListEmbed(memberIds)).setEphemeral(true).complete();
+        }
     }
 }
