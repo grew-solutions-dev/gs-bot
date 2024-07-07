@@ -29,5 +29,4 @@ public class CommandEventListener extends ListenerAdapter {
     public void registerCommand(ICommandHandler commandHandler) {
         commandHandlers.put(commandHandler.getCommandData().getName(),commandHandler);
     }
-
 }

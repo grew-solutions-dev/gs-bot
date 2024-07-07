@@ -2,6 +2,7 @@ package de.grewdev;
 
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.core.Appender;
+import de.grewdev.cmds.ClearCmd;
 import de.grewdev.cmds.CrewMemberCmd;
 import de.grewdev.events.*;
 import de.grewdev.utils.TimeStamper;
@@ -50,6 +51,7 @@ public class Main {
 
         //add Commands
         cmdEventListener.registerCommand(new CrewMemberCmd());
+        cmdEventListener.registerCommand(new ClearCmd());
 
         builder.addEventListeners(cmdEventListener);
 
