@@ -14,7 +14,7 @@ public class DatabaseConnection {
         System.setProperty("org.jooq.no-logo", "true");
         System.setProperty("org.jooq.no-tips", "true");
 
-        String url = "jdbc:mysql://" + System.getenv("SQL_URL") + "/" + System.getenv("SQL_DBASE");
+        String url = "jdbc:mysql://" + System.getenv("SQL_URL") + "/" + System.getenv("SQL_DBASE") + "?autoReconnect=" + System.getenv("SQL_AUTORECONNECT");
         String username = System.getenv("SQL_USERNAME");
         String password = System.getenv("SQL_PASSWORD");
 

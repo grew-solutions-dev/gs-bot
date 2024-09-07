@@ -29,6 +29,7 @@ public class PrivateMessageListener extends ListenerAdapter {
 
            for (String id : allowCrewList) {
                 if (event.getAuthor().getId().equals(id.trim())) {
+                    //TODO Adding symbols to the MSG for the dispatch query
                     NewsChannel NewsChan = event.getJDA().getGuildById(System.getenv("SERVER_ID")).getNewsChannelById(System.getenv("CHAN_ANNOUNCE"));
                     //TextChannel NewsChan = event.getJDA().getTextChannelById(System.getenv("CHAN_BOT_CONFIG"));
                     NewsChan.sendTyping().queue();
