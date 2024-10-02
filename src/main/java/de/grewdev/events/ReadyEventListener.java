@@ -35,6 +35,7 @@ public class ReadyEventListener extends ListenerAdapter {
 
         //Products Embed
         embedsManager.createOrUpdateEmbed("grewNpc", "productEmbeds", System.getenv("GREW_NPC"), new GrewNPC());
+        embedsManager.createOrUpdateEmbed("grewVersionchecker", "productEmbeds", System.getenv("GREW_VERSIONCHECKER"), new GrewVersionchecker());
         embedsManager.createOrUpdateEmbed("grewPlasticsurgeon", "productEmbeds", System.getenv("GREW_PLASTICSURGEON"), new GrewPlasticsurgeon());
         embedsManager.createOrUpdateEmbed("grewEsxAddon", "productEmbeds", System.getenv("GREW_ESXADDON"), new GrewEsxAddon());
         embedsManager.createOrUpdateEmbed("grewSupportclothes", "productEmbeds", System.getenv("GREW_SUPPORTCLOTHES"), new GrewSupportclothes());
