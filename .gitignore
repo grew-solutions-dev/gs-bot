@@ -6,6 +6,7 @@ target/
 ## Personal Ignor ##
 .env
 GDN.env
+logs/
 
 
 ### IntelliJ IDEA ###
