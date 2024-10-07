@@ -46,6 +46,7 @@ public class Main {
         builder.addEventListeners(new MessageEventListener());
         builder.addEventListeners(new MessageInteractionEventListener());
         builder.addEventListeners(new PrivateMessageListener());
+        builder.addEventListeners(new LvLMessageEventListener());
 
         CommandEventListener cmdEventListener = new CommandEventListener();
 
