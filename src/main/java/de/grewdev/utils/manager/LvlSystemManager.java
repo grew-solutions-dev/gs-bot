@@ -2,16 +2,17 @@ package de.grewdev.utils.manager;
 
 import de.grewdev.utils.DatabaseConnection;
 import net.dv8tion.jda.api.JDA;
-import org.jooq.DSLContext;
-import org.jooq.SQLDialect;
 import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.User;
+import org.jooq.*;
 import org.jooq.impl.DSL;
-import org.jooq.impl.QOM;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
+import java.sql.Timestamp;
 
+import static org.jooq.impl.DSL.*;
 import static org.jooq.impl.SQLDataType.*;
 
 public class LvlSystemManager {
@@ -53,4 +54,33 @@ public class LvlSystemManager {
 
     }
 
+    public boolean isTimeOut(User user) {
+
+        Record3<Integer, Timestamp, Integer> dbUser = getUser(user);
+        if (dbUser == null) return false;
+
+        Timestamp lastupdate = dbUser.value2();
+        Timestamp curTime = dBase.fetchValue(select(currentTimestamp()));
+
+        if (System.getenv("LVLSYS_TIMEOUT") == null) return true;
+        int timeOutDif = Integer.parseInt(System.getenv("LVLSYS_TIMEOUT"));
+        long diff = (curTime.getTime() - lastupdate.getTime()) / 1000;
+
+        return !(diff > timeOutDif);
+    }
+
+    private Record3<Integer, Timestamp, Integer> getUser(User user) {
+        Result<Record3<Integer, Timestamp, Integer>> result = dBase.select(
+                        field("xp", INTEGER),
+                        field("lastUpdate", Timestamp.class),
+                        field("lvl", INTEGER)
+                )
+                .from(table("lvlSystem"))
+                .where(field("memberId", String.class).eq(String.valueOf(user.getIdLong())))
+                .fetch();
+
+        if (result.isEmpty()) return null;
+
+        return result.getFirst();
+    }
 }
