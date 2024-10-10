@@ -1,7 +1,9 @@
 package de.grewdev.utils.manager;
 
+import de.grewdev.embeds.NextLvlEmbed;
 import de.grewdev.utils.DatabaseConnection;
 import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.User;
 import org.jooq.*;
@@ -11,6 +13,7 @@ import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.Timestamp;
+import java.util.Random;
 
 import static org.jooq.impl.DSL.*;
 import static org.jooq.impl.SQLDataType.*;
@@ -82,5 +85,76 @@ public class LvlSystemManager {
         if (result.isEmpty()) return null;
 
         return result.getFirst();
+    }
+
+    private void setData(Long memberId, String lastMemberName, Integer xp, Timestamp lastUpdate, Integer lvl){
+        dBase.insertInto(table("lvlSystem"))
+                .columns(field("memberId"), field("lastMemberName"), field("xp"), field("lastUpdate"), field("lvl"))
+                .values(memberId, lastMemberName, xp, lastUpdate, lvl)
+                .onDuplicateKeyUpdate()
+                .set(field("lastMemberName"), lastMemberName)
+                .set(field("xp"), xp)
+                .set(field("lastUpdate"), lastUpdate)
+                .set(field("lvl"), lvl)
+                .execute();
+    }
+
+    private int randomeXP() {
+        if (System.getenv("LVLSYS_MINXP") == null) return 0;
+        if (System.getenv("LVLSYS_MAXXP") == null) return 0;
+
+        int minXp = Integer.parseInt(System.getenv("LVLSYS_MINXP"));
+        int maxXp = Integer.parseInt(System.getenv("LVLSYS_MAXXP"));
+
+        Random random = new Random();
+
+        return minXp + random.nextInt(maxXp - minXp);
+    }
+
+    public Integer checkLvl(Integer xp, Integer currentLevel) {
+        String baseXpEnv = System.getenv("LVLSYS_BASEXP");
+        String maxLvlEnv = System.getenv("LVLSYS_MAXLVL");
+        String lvlFactorEnv = System.getenv("LVLSYS_LVLFACTOR");
+
+        if (baseXpEnv == null || maxLvlEnv == null || lvlFactorEnv == null) {
+            return null;
+        }
+
+        int baseXp = Integer.parseInt(baseXpEnv);
+        int maxLevel = Integer.parseInt(maxLvlEnv);
+        double lvlFactor = Integer.parseInt(lvlFactorEnv) / 100.0;
+
+        int level = currentLevel;
+        int xpThreshold = baseXp;
+
+        while (xp >= xpThreshold && level < maxLevel) {
+            xp -= xpThreshold;
+            level++;
+            xpThreshold += (int) (xpThreshold * lvlFactor);
+        }
+
+        return level;
+    }
+
+    public void grandLevel(User user, Guild server, Long curChan) {
+
+        Record3<Integer, Timestamp, Integer> dbUser = getUser(user);
+        int addXp = randomeXP();
+        Timestamp curTime = dBase.fetchValue(select(currentTimestamp()));
+
+        if (dbUser == null) {
+            setData(user.getIdLong(), user.getName(), addXp, curTime,0);
+            return;
+        };
+
+        int xp = dbUser.value1() + addXp;
+        int newLvl = checkLvl(xp, dbUser.value3());
+
+        setData(user.getIdLong(), user.getName(), xp, curTime, newLvl);
+
+        if (dbUser.value3() < newLvl){
+            this.jda.getTextChannelById(curChan).sendMessageEmbeds(new NextLvlEmbed(user, server, newLvl)).complete();
+        };
+
     }
 }
