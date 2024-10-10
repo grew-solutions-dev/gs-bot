@@ -11,9 +11,11 @@ public class GrewBillingsystem extends MessageEmbed {
         super(
                 null,
                 "Grew Billingsystem",
-                "This script allows you to create, pay and display invoices.\n" +
-                        "You can also use this script to write certain job invoices so that the money goes into a specific job fund.\n\n" +
-                        "If you have any questions, feel free to open an Ticket :)",
+                """
+                        This script allows you to create, pay and display invoices.
+                        You can also use this script to write certain job invoices so that the money goes into a specific job fund.
+
+                        If you have any questions, feel free to open an Ticket :)""",
                 null,
                 null,
                 Color.DARK_GRAY.getRGB(),
@@ -25,8 +27,10 @@ public class GrewBillingsystem extends MessageEmbed {
                 null,
                 Arrays.asList(
                         new Field("Requirements",
-                                ":arrow_forward: [es_extendet](https://github.com/esx-framework/esx_core)\n"+
-                                        ":arrow_forward: [oxmysql](https://github.com/overextended/oxmysql)\n",
+                                """
+                                        :arrow_forward: [es_extendet](https://github.com/esx-framework/esx_core)
+                                        :arrow_forward: [oxmysql](https://github.com/overextended/oxmysql)
+                                        """,
                                 false),
                         new Field("Price", "5,00€ (+VAT)", true),
                         new Field("Current Version", "v1.3.1", true),

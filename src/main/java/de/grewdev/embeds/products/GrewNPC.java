@@ -11,10 +11,12 @@ public class GrewNPC extends MessageEmbed {
         super(
                 null,
                 "Grew NPC",
-                "Grew NPC adds individual NPC's with 3D text.\n" +
-                        "NPC's can be taken to use information.\n" +
-                        "In the future, new features will come.\n\n" +
-                        "If you have any questions, feel free to open an Ticket :)",
+                """
+                        Grew NPC adds individual NPC's with 3D text.
+                        NPC's can be taken to use information.
+                        In the future, new features will come.
+
+                        If you have any questions, feel free to open an Ticket :)""",
                 null,
                 null,
                 Color.DARK_GRAY.getRGB(),

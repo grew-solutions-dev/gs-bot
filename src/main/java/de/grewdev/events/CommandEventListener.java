@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 
 public class CommandEventListener extends ListenerAdapter {
-    private static HashMap<String, ICommandHandler> commandHandlers = new HashMap<String, ICommandHandler>();
+    private static final HashMap<String, ICommandHandler> commandHandlers = new HashMap<>();
 
     public void onReady(@NotNull ReadyEvent event) {
         for (ICommandHandler cmdHandler : commandHandlers.values()) {

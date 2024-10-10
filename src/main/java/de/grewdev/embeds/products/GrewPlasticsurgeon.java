@@ -11,9 +11,11 @@ public class GrewPlasticsurgeon extends MessageEmbed {
         super(
                 null,
                 "Grew PlasticSurgeon",
-                "Grew plastic surgeon adds an NPC who can stand at the entry or at the hospital to approach a skin change for with/without money.\n" +
-                        "A must for roleplay servers!\n\n" +
-                        "If you have any questions, feel free to open an Ticket :)",
+                """
+                        Grew plastic surgeon adds an NPC who can stand at the entry or at the hospital to approach a skin change for with/without money.
+                        A must for roleplay servers!
+
+                        If you have any questions, feel free to open an Ticket :)""",
                 null,
                 null,
                 Color.DARK_GRAY.getRGB(),
@@ -25,8 +27,10 @@ public class GrewPlasticsurgeon extends MessageEmbed {
                 null,
                 Arrays.asList(
                         new Field("Requirements",
-                                ":arrow_forward: [es_extendet](https://github.com/esx-framework/esx_core)\n" +
-                                        ":arrow_forward: [esx_skin](https://github.com/esx-framework/esx_core)\n",
+                                """
+                                        :arrow_forward: [es_extendet](https://github.com/esx-framework/esx_core)
+                                        :arrow_forward: [esx_skin](https://github.com/esx-framework/esx_core)
+                                        """,
                                 false),
                         new Field("Price", "4,50€ (+VAT)", true),
                         new Field("Current Version", "v2.1.2", true),

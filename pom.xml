@@ -6,7 +6,7 @@
 
     <groupId>de.grewdev</groupId>
     <artifactId>GDN</artifactId>
-    <version>4.7.3</version>
+    <version>4.8.0</version>
 
     <properties>
         <maven.compiler.source>22</maven.compiler.source>
@@ -42,6 +42,4 @@
             <version>2.0.13</version>
         </dependency>
     </dependencies>
-
-
 </project>

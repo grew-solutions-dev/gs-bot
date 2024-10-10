@@ -11,10 +11,11 @@ public class GrewVersionchecker extends MessageEmbed {
         super(
                 null,
                 "Grew Versionchecker",
-                "The Grew Versionchecker is a crucial script for the Grew Development Network.\n" +
-                        "It ensures that other scripts are up to date and provides notifications in the server console if outdated versions are detected.\n" +
-                        "With this script, you are always one step ahead and save yourself the hassle of constantly searching for updates manually!\n" +
-                        "If you have any questions, feel free to open an Ticket :)",
+                """
+                        The Grew Versionchecker is a crucial script for the Grew Development Network.
+                        It ensures that other scripts are up to date and provides notifications in the server console if outdated versions are detected.
+                        With this script, you are always one step ahead and save yourself the hassle of constantly searching for updates manually!
+                        If you have any questions, feel free to open an Ticket :)""",
                 null,
                 null,
                 Color.DARK_GRAY.getRGB(),

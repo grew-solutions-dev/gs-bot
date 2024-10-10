@@ -11,8 +11,10 @@ public class GrewDrivingschool extends MessageEmbed {
         super(
                 null,
                 "Grew Drivingschool",
-                "DrivingSchool for FiveM with different driving routes, customizable speeds and much more.\n\n" +
-                        "If you have any questions, feel free to open an Ticket :)",
+                """
+                        DrivingSchool for FiveM with different driving routes, customizable speeds and much more.
+
+                        If you have any questions, feel free to open an Ticket :)""",
                 null,
                 null,
                 Color.DARK_GRAY.getRGB(),

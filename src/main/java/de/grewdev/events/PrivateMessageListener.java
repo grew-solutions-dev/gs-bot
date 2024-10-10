@@ -7,6 +7,7 @@ import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class PrivateMessageListener extends ListenerAdapter {
     private List<String> allowCrewList;
 
     @Override
-    public void onReady(ReadyEvent event) {
+    public void onReady(@NotNull ReadyEvent event) {
         allowCrewList = CrewMemberManager.getInstance().getMemberIds();
     }
 
@@ -38,9 +39,7 @@ public class PrivateMessageListener extends ListenerAdapter {
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
-                    NewsChan.sendMessage(event.getMessage().getContentDisplay()).queue(msg -> {
-                        msg.crosspost().queue();
-                    });
+                    NewsChan.sendMessage(event.getMessage().getContentDisplay()).queue(msg -> msg.crosspost().queue());
                     break;
                 }
            }

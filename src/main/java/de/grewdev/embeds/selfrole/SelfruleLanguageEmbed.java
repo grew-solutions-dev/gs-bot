@@ -9,9 +9,10 @@ public class SelfruleLanguageEmbed extends MessageEmbed {
         super(
                 null,
                 "Select language",
-                "Add your language so that everyone knows what language you speak.\n" +
-                        "\uD83C\uDDEC\uD83C\uDDE7 English\n" +
-                        "\uD83C\uDDE9\uD83C\uDDEA German",
+                """
+                        Add your language so that everyone knows what language you speak.
+                        \uD83C\uDDEC\uD83C\uDDE7 English
+                        \uD83C\uDDE9\uD83C\uDDEA German""",
                 null,
                 null,
                 Color.DARK_GRAY.getRGB(),

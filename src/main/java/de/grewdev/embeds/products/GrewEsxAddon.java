@@ -11,9 +11,11 @@ public class GrewEsxAddon extends MessageEmbed {
         super(
                 null,
                 "Grew esxAddon",
-                "Grew esxAddon adds new commands for es_extendet.\n" +
-                        "Additional events are also brought by the script. For more information please read the wiki\n\n" +
-                        "If you have any questions, feel free to open an Ticket :)",
+                """
+                        Grew esxAddon adds new commands for es_extendet.
+                        Additional events are also brought by the script. For more information please read the wiki
+
+                        If you have any questions, feel free to open an Ticket :)""",
                 null,
                 null,
                 Color.DARK_GRAY.getRGB(),

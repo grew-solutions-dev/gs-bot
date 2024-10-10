@@ -136,7 +136,7 @@ public class LvlSystemManager {
         return level;
     }
 
-    public void grandLevel(User user, Guild server, Long curChan) {
+    public void grandLevel(User user, Long curChan) {
 
         Record3<Integer, Timestamp, Integer> dbUser = getUser(user);
         int addXp = randomeXP();
@@ -153,7 +153,7 @@ public class LvlSystemManager {
         setData(user.getIdLong(), user.getName(), xp, curTime, newLvl);
 
         if (dbUser.value3() < newLvl){
-            this.jda.getTextChannelById(curChan).sendMessageEmbeds(new NextLvlEmbed(user, server, newLvl)).complete();
+            this.jda.getTextChannelById(curChan).sendMessageEmbeds(new NextLvlEmbed(user, newLvl)).complete();
         };
 
     }

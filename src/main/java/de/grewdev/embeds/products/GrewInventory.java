@@ -11,9 +11,11 @@ public class GrewInventory extends MessageEmbed {
         super(
                 null,
                 "Grew Inventory",
-                "Grew Inventory creates your own individual inventory.\n" +
-                        "It no longer allows your users to use the standardized F2 menu but gives you new functions to interact with all your items!\n\n" +
-                        "If you have any questions, feel free to open an Ticket :)",
+                """
+                        Grew Inventory creates your own individual inventory.
+                        It no longer allows your users to use the standardized F2 menu but gives you new functions to interact with all your items!
+
+                        If you have any questions, feel free to open an Ticket :)""",
                 null,
                 null,
                 Color.DARK_GRAY.getRGB(),
@@ -25,8 +27,10 @@ public class GrewInventory extends MessageEmbed {
                 null,
                 Arrays.asList(
                         new Field("Requirements",
-                                ":arrow_forward: [es_extendet](https://github.com/esx-framework/esx_core)\n" +
-                                        ":arrow_forward: [oxmysql](https://github.com/overextended/oxmysql)\n",
+                                """
+                                        :arrow_forward: [es_extendet](https://github.com/esx-framework/esx_core)
+                                        :arrow_forward: [oxmysql](https://github.com/overextended/oxmysql)
+                                        """,
                                 false),
                         new Field("Price", "10,00€ (+VAT)", true),
                         new Field("Current Version", "v0.1.1", true),

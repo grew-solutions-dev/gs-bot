@@ -11,11 +11,13 @@ public class GrewSupportclothes extends MessageEmbed {
         super(
                 null,
                 "Grew Supportclothes",
-                "Grew Supportclothes is a perfomant Admin-Vest-System with special Ranks." +
-                        "You have individual ranks for each vest, which can be added to other scripts.\n" +
-                        "For example, the Door Creator.\n" +
-                        "You have the possibility to simply add more vests and give them a rank.\n\n" +
-                        "If you have any questions, feel free to open an Ticket :)",
+                """
+                        Grew Supportclothes is a perfomant Admin-Vest-System with special Ranks.\
+                        You have individual ranks for each vest, which can be added to other scripts.
+                        For example, the Door Creator.
+                        You have the possibility to simply add more vests and give them a rank.
+
+                        If you have any questions, feel free to open an Ticket :)""",
                 null,
                 null,
                 Color.DARK_GRAY.getRGB(),
@@ -27,8 +29,10 @@ public class GrewSupportclothes extends MessageEmbed {
                 null,
                 Arrays.asList(
                         new Field("Requirements",
-                                ":arrow_forward: [es_extendet](https://github.com/esx-framework/esx_core)\n" +
-                                        ":arrow_forward: [esx_skin](https://github.com/esx-framework/esx_core)\n",
+                                """
+                                        :arrow_forward: [es_extendet](https://github.com/esx-framework/esx_core)
+                                        :arrow_forward: [esx_skin](https://github.com/esx-framework/esx_core)
+                                        """,
                                 false),
                         new Field("Price", "15,00€ (+VAT)", true),
                         new Field("Current Version", "v1.3.2", true),

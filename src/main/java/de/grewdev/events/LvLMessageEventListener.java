@@ -15,7 +15,7 @@ public class LvLMessageEventListener  extends ListenerAdapter {
         if (!lvlmanager.hasMsgMinLength(event.getMessage())) return;
         if (lvlmanager.isTimeOut(event.getAuthor())) return;
 
-        lvlmanager.grandLevel(event.getAuthor(), event.getGuild(), event.getChannel().getIdLong());
+        lvlmanager.grandLevel(event.getAuthor(), event.getChannel().getIdLong());
 
     }
 }

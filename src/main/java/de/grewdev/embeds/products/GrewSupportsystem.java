@@ -11,11 +11,13 @@ public class GrewSupportsystem extends MessageEmbed {
         super(
                 null,
                 "Grew Supportsystem",
-                "Grew Supportsystem is a NativeUI Reportmenu\n" +
-                        "Team members have a quick overview of all reports and can edit them quickly.\n" +
-                        "Very easy configurable config with templates of reports.\n" +
-                        "Direct teleport to the report and date display.\n\n" +
-                        "If you have any questions, feel free to open an Ticket :)",
+                """
+                        Grew Supportsystem is a NativeUI Reportmenu
+                        Team members have a quick overview of all reports and can edit them quickly.
+                        Very easy configurable config with templates of reports.
+                        Direct teleport to the report and date display.
+
+                        If you have any questions, feel free to open an Ticket :)""",
                 null,
                 null,
                 Color.DARK_GRAY.getRGB(),
@@ -27,10 +29,12 @@ public class GrewSupportsystem extends MessageEmbed {
                 null,
                 Arrays.asList(
                         new Field("Requirements",
-                                ":arrow_forward: [es_extendet](https://github.com/esx-framework/esx_core)\n" +
-                                        ":arrow_forward: [oxmysql](https://github.com/overextended/oxmysql)\n" +
-                                        ":arrow_forward: [NativeUILua](https://github.com/Grewoo/NativeUILua)\n" +
-                                        ":arrow_forward: [zf_dialog](https://github.com/zf-labo/zf_dialog)\n",
+                                """
+                                        :arrow_forward: [es_extendet](https://github.com/esx-framework/esx_core)
+                                        :arrow_forward: [oxmysql](https://github.com/overextended/oxmysql)
+                                        :arrow_forward: [NativeUILua](https://github.com/Grewoo/NativeUILua)
+                                        :arrow_forward: [zf_dialog](https://github.com/zf-labo/zf_dialog)
+                                        """,
                                 false),
                         new Field("Price", "12,50€e", true),
                         new Field("Current Version", "v1.3.0", true),

@@ -1,6 +1,5 @@
 package de.grewdev.embeds;
 
-import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 
 import java.awt.*;

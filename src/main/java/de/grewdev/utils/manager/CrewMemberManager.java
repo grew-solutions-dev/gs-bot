@@ -53,10 +53,6 @@ public class CrewMemberManager {
         return allowCrewList;
     }
 
-    public Boolean isCrewMember(String memberId) {
-        return allowCrewList.contains(memberId);
-    }
-
     public Boolean addMember(Member member) {
         Integer error =  dBase.insertInto(table("crewMembers"))
                 .columns(field("memberName", String.class), field("memberId", String.class))
