@@ -25,6 +25,7 @@ public class ReadyEventListener extends ListenerAdapter {
         }
 
         createOrUpdateDefaultEmbeds(event.getJDA());
+        LvlSystemManager.getInstance(event.getJDA());
     }
 
     public void createOrUpdateDefaultEmbeds(JDA jda) {

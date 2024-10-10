@@ -4,6 +4,7 @@ import de.grewdev.utils.DatabaseConnection;
 import net.dv8tion.jda.api.JDA;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
+import net.dv8tion.jda.api.entities.Message;
 import org.jooq.impl.DSL;
 import org.jooq.impl.QOM;
 import org.slf4j.Logger;
@@ -32,7 +33,7 @@ public class LvlSystemManager {
         dBase.createTableIfNotExists(tableName)
                 .column("memberId", VARCHAR(36))
                 .column("lastMemberName", VARCHAR(50))
-                .column("xp", DOUBLE.notNull().defaultValue(0.0))
+                .column("xp", INTEGER.notNull().defaultValue(0))
                 .column("lastUpdate", TIMESTAMP.notNull().defaultValue(DSL.currentTimestamp()))
                 .column("lvl", INTEGER.notNull().defaultValue(0))
                 .primaryKey("memberId")
@@ -44,6 +45,12 @@ public class LvlSystemManager {
             instance = new LvlSystemManager(jda);
         }
         return instance;
+    }
+
+    public boolean hasMsgMinLength(Message msg) {
+        if (System.getenv("LVLSYS_MINCHARS") == null) return false;
+        return msg.getContentRaw().length() >= Integer.parseInt(System.getenv("LVLSYS_MINCHARS"));
+
     }
 
 }
