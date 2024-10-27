@@ -3,8 +3,7 @@ package de.grewdev.utils.manager;
 import de.grewdev.embeds.NextLvlEmbed;
 import de.grewdev.utils.DatabaseConnection;
 import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.User;
 import org.jooq.*;
 import org.jooq.impl.DSL;
@@ -37,6 +36,8 @@ public class LvlSystemManager {
         dBase.createTableIfNotExists(tableName)
                 .column("memberId", VARCHAR(36))
                 .column("lastMemberName", VARCHAR(50))
+                .column("memberTag", VARCHAR(36))
+                .column("memberAvatarUrl", VARCHAR(512))
                 .column("xp", INTEGER.notNull().defaultValue(0))
                 .column("lastUpdate", TIMESTAMP.notNull().defaultValue(DSL.currentTimestamp()))
                 .column("lvl", INTEGER.notNull().defaultValue(0))
@@ -49,12 +50,6 @@ public class LvlSystemManager {
             instance = new LvlSystemManager(jda);
         }
         return instance;
-    }
-
-    public boolean hasMsgMinLength(Message msg) {
-        if (System.getenv("LVLSYS_MINCHARS") == null) return false;
-        return msg.getContentRaw().length() >= Integer.parseInt(System.getenv("LVLSYS_MINCHARS"));
-
     }
 
     public boolean isTimeOut(User user) {
@@ -87,12 +82,14 @@ public class LvlSystemManager {
         return result.getFirst();
     }
 
-    private void setData(Long memberId, String lastMemberName, Integer xp, Timestamp lastUpdate, Integer lvl){
+    private void setData(Long memberId, String lastMemberName, String memberTag, String memberAvatrUrl,  Integer xp, Timestamp lastUpdate, Integer lvl){
         dBase.insertInto(table("lvlSystem"))
-                .columns(field("memberId"), field("lastMemberName"), field("xp"), field("lastUpdate"), field("lvl"))
-                .values(memberId, lastMemberName, xp, lastUpdate, lvl)
+                .columns(field("memberId"), field("lastMemberName"), field("memberTag"), field("memberAvatrUrl"), field("xp"), field("lastUpdate"), field("lvl"))
+                .values(memberId, lastMemberName, memberTag, memberAvatrUrl, xp, lastUpdate, lvl)
                 .onDuplicateKeyUpdate()
                 .set(field("lastMemberName"), lastMemberName)
+                .set(field("memberTag"), memberTag)
+                .set(field("memberAvatrUrl"), memberAvatrUrl)
                 .set(field("xp"), xp)
                 .set(field("lastUpdate"), lastUpdate)
                 .set(field("lvl"), lvl)
@@ -111,50 +108,42 @@ public class LvlSystemManager {
         return minXp + random.nextInt(maxXp - minXp);
     }
 
-    public Integer checkLvl(Integer xp, Integer currentLevel) {
+    public void grandLevel(Member member, Long curChan) {
+
         String baseXpEnv = System.getenv("LVLSYS_BASEXP");
         String maxLvlEnv = System.getenv("LVLSYS_MAXLVL");
-        String lvlFactorEnv = System.getenv("LVLSYS_LVLFACTOR");
-
-        if (baseXpEnv == null || maxLvlEnv == null || lvlFactorEnv == null) {
-            return null;
+        if (baseXpEnv == null || maxLvlEnv == null) {
+            return;
         }
 
-        int baseXp = Integer.parseInt(baseXpEnv);
-        int maxLevel = Integer.parseInt(maxLvlEnv);
-        double lvlFactor = Integer.parseInt(lvlFactorEnv) / 100.0;
-
-        int level = currentLevel;
-        int xpThreshold = baseXp;
-
-        while (xp >= xpThreshold && level < maxLevel) {
-            xp -= xpThreshold;
-            level++;
-            xpThreshold += (int) (xpThreshold * lvlFactor);
-        }
-
-        return level;
-    }
-
-    public void grandLevel(User user, Long curChan) {
-
-        Record3<Integer, Timestamp, Integer> dbUser = getUser(user);
+        Record3<Integer, Timestamp, Integer> dbUser = getUser(member.getUser());
         int addXp = randomeXP();
         Timestamp curTime = dBase.fetchValue(select(currentTimestamp()));
 
         if (dbUser == null) {
-            setData(user.getIdLong(), user.getName(), addXp, curTime,0);
+            setData(member.getUser().getIdLong(), member.getNickname(), member.getUser().getName(), member.getUser().getEffectiveAvatarUrl(), addXp, curTime,0);
             return;
-        };
+        }
+
+        int level = dbUser.value3();
+        int maxLevel = Integer.parseInt(maxLvlEnv);
+        if (level >= maxLevel){
+            return;
+        }
 
         int xp = dbUser.value1() + addXp;
-        int newLvl = checkLvl(xp, dbUser.value3());
 
-        setData(user.getIdLong(), user.getName(), xp, curTime, newLvl);
+        int baseXp = Integer.parseInt(baseXpEnv);
 
-        if (dbUser.value3() < newLvl){
-            this.jda.getTextChannelById(curChan).sendMessageEmbeds(new NextLvlEmbed(user, newLvl)).complete();
-        };
+        int xpToNextLevel = 5 * (int) Math.pow(level, 2) + (50 * level) + baseXp - xp;
+
+        if (xpToNextLevel <= 0 ){
+            level++;
+            xp = -xpToNextLevel;
+            this.jda.getTextChannelById(curChan).sendMessageEmbeds(new NextLvlEmbed(member.getUser(), level)).complete();
+        }
+
+        setData(member.getUser().getIdLong(), member.getNickname(), member.getUser().getName(), member.getUser().getEffectiveAvatarUrl(), xp, curTime, level);
 
     }
 }

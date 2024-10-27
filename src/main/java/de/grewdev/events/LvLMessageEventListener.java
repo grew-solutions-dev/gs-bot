@@ -12,10 +12,9 @@ public class LvLMessageEventListener  extends ListenerAdapter {
 
         if (event.getAuthor().isBot()) return;
         if (event.getMessage().isFromType(ChannelType.PRIVATE)) return;
-        if (!lvlmanager.hasMsgMinLength(event.getMessage())) return;
         if (lvlmanager.isTimeOut(event.getAuthor())) return;
 
-        lvlmanager.grandLevel(event.getAuthor(), event.getChannel().getIdLong());
+        lvlmanager.grandLevel(event.getMember(), event.getChannel().getIdLong());
 
     }
 }
