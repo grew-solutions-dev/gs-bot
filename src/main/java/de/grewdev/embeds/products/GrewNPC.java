@@ -32,7 +32,7 @@ public class GrewNPC extends MessageEmbed {
                                 false),
                         new Field("Price", "2,75€ (+VAT)", true),
                         new Field("Current Version", "v1.2.1", true),
-                        new Field("WIKI", System.getenv("LINK_WIKI_URL") + "/grew_npc/1-readme", false),
+                        new Field("WIKI", System.getenv("LINK_WIKI_URL") + "/grew_npc/readme", false),
                         new Field("Shop-Page", System.getenv("LINK_STORE_URL") + "/package/5453979", false),
                         new Field("Trailer", "coming-soon", false)
                 )

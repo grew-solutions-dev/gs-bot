@@ -34,7 +34,7 @@ public class GrewPlasticsurgeon extends MessageEmbed {
                                 false),
                         new Field("Price", "4,50€ (+VAT)", true),
                         new Field("Current Version", "v2.1.2", true),
-                        new Field("WIKI", System.getenv("LINK_WIKI_URL") + "/grew_plasticsurgeon/1-readme", false),
+                        new Field("WIKI", System.getenv("LINK_WIKI_URL") + "/grew_plasticsurgeon/readme", false),
                         new Field("Shop-Page", System.getenv("LINK_STORE_URL") + "/package/5571869", false),
                         new Field("Trailer", "coming-soon", false)
                 )

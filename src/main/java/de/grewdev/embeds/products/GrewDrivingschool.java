@@ -33,7 +33,7 @@ public class GrewDrivingschool extends MessageEmbed {
                                 false),
                         new Field("Price", "12,50€ (+VAT)", true),
                         new Field("Current Version", "v1.4.1", true),
-                        new Field("WIKI", System.getenv("LINK_WIKI_URL") + "/grew_drivingschool/1-readme", false),
+                        new Field("WIKI", System.getenv("LINK_WIKI_URL") + "/grew_drivingschool/readme", false),
                         new Field("Shop-Page", System.getenv("LINK_STORE_URL") + "/comming-soon", false),
                         new Field("Trailer", "coming-soon", false)
                 )

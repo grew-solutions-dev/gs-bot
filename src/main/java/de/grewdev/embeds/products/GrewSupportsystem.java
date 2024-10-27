@@ -38,7 +38,7 @@ public class GrewSupportsystem extends MessageEmbed {
                                 false),
                         new Field("Price", "12,50€e", true),
                         new Field("Current Version", "v1.3.0", true),
-                        new Field("WIKI", System.getenv("LINK_WIKI_URL") + "/grew_supportsystem/1-readme", false),
+                        new Field("WIKI", System.getenv("LINK_WIKI_URL") + "/grew_supportsystem/readme", false),
                         new Field("Shop-Page", System.getenv("LINK_STORE_URL") + "/package/5454027", false),
                         new Field("Trailer", "coming-soon", false)
                 )

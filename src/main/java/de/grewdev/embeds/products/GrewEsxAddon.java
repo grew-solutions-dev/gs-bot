@@ -31,7 +31,7 @@ public class GrewEsxAddon extends MessageEmbed {
                                 false),
                         new Field("Price", "2,50€ (+VAT)", true),
                         new Field("Current Version", "v1.6.1", true),
-                        new Field("WIKI", System.getenv("LINK_WIKI_URL") + "/grew_esxaddon/1-readme", false),
+                        new Field("WIKI", System.getenv("LINK_WIKI_URL") + "/grew_esxaddon/readme", false),
                         new Field("Shop-Page", System.getenv("LINK_STORE_URL") + "/package/5454068", false),
                         new Field("Trailer", "coming-soon", false)
                 )

@@ -34,7 +34,7 @@ public class GrewBillingsystem extends MessageEmbed {
                                 false),
                         new Field("Price", "5,00€ (+VAT)", true),
                         new Field("Current Version", "v1.3.1", true),
-                        new Field("WIKI", System.getenv("LINK_WIKI_URL") + "/grew_billingsystem/1-readme", false),
+                        new Field("WIKI", System.getenv("LINK_WIKI_URL") + "/grew_billingsystem/readme", false),
                         new Field("Shop-Page", System.getenv("LINK_STORE_URL") + "/comming-soon", false),
                         new Field("Trailer", "coming-soon", false)
                 )

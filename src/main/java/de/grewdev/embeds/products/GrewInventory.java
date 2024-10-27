@@ -34,7 +34,7 @@ public class GrewInventory extends MessageEmbed {
                                 false),
                         new Field("Price", "10,00€ (+VAT)", true),
                         new Field("Current Version", "v0.1.1", true),
-                        new Field("WIKI", System.getenv("LINK_WIKI_URL") + "/grew_inventory/1-readme", false),
+                        new Field("WIKI", System.getenv("LINK_WIKI_URL") + "/grew_inventory/readme", false),
                         new Field("Shop-Page", System.getenv("LINK_STORE_URL") + "/comming-soon", false),
                         new Field("Trailer", "coming-soon", false)
                 )

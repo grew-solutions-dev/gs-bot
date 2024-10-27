@@ -42,7 +42,7 @@ public class GrewGaragesystem extends MessageEmbed {
                                 false),
                         new Field("Price", "20,00€ (+VAT)", true),
                         new Field("Current Version", "v1.3.1", true),
-                        new Field("WIKI", System.getenv("LINK_WIKI_URL") + "/grew_garagesystem/1-readme", false),
+                        new Field("WIKI", System.getenv("LINK_WIKI_URL") + "/grew_garagesystem/readme", false),
                         new Field("Shop-Page", System.getenv("LINK_STORE_URL") + "/package/5486208", false),
                         new Field("Trailer", "coming-soon", false)
                 )

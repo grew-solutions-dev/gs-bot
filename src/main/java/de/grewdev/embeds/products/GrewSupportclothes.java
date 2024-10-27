@@ -36,7 +36,7 @@ public class GrewSupportclothes extends MessageEmbed {
                                 false),
                         new Field("Price", "15,00€ (+VAT)", true),
                         new Field("Current Version", "v1.3.2", true),
-                        new Field("WIKI", System.getenv("LINK_WIKI_URL") + "/grew_supportclothes/1-readme", false),
+                        new Field("WIKI", System.getenv("LINK_WIKI_URL") + "/grew_supportclothes/readme", false),
                         new Field("Shop-Page", System.getenv("LINK_STORE_URL") + "/package/5452767", false),
                         new Field("Trailer", "coming-soon", false)
                 )
