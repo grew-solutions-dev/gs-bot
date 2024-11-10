@@ -12,15 +12,14 @@ public class GrewNPC extends MessageEmbed {
                 null,
                 "Grew NPC",
                 """
-                        Grew NPC adds individual NPC's with 3D text.
-                        NPC's can be taken to use information.
-                        In the future, new features will come.
-
-                        If you have any questions, feel free to open an Ticket :)""",
+                        This script removes default spawning NPCs (such as civilians, vehicles, and animals) from the game world and
+                        allows you to place custom NPCs at specific locations with text displayed above their heads.
+                        The script offers high flexibility through configuration settings and JSON files for defining NPCs.
+                        """,
                 null,
                 null,
                 Color.DARK_GRAY.getRGB(),
-                new Thumbnail("https://dunb17ur4ymx4.cloudfront.net/packages/images/b70145489767495d11e09bf91d050524c063c4fe.png", null, 0, 0),
+                new Thumbnail(System.getenv("LINK_PRODUCT_THUMBNAIL"), null, 0, 0),
                 null,
                 null,
                 null,
@@ -28,10 +27,10 @@ public class GrewNPC extends MessageEmbed {
                 null,
                 Arrays.asList(
                         new Field("Requirements",
-                                ":name_badge: No Requirements",
+                                System.getenv("LINK_WIKI_URL") + "/grew_npc/required",
                                 false),
                         new Field("Price", "2,75€ (+VAT)", true),
-                        new Field("Current Version", "v1.2.1", true),
+                        new Field("Current Version", "v2.1.3", true),
                         new Field("WIKI", System.getenv("LINK_WIKI_URL") + "/grew_npc/readme", false),
                         new Field("Shop-Page", System.getenv("LINK_STORE_URL") + "/package/5453979", false),
                         new Field("Trailer", "coming-soon", false)

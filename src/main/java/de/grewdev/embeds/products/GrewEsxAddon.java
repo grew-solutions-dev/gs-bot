@@ -19,7 +19,7 @@ public class GrewEsxAddon extends MessageEmbed {
                 null,
                 null,
                 Color.DARK_GRAY.getRGB(),
-                new Thumbnail("https://cdn-icons-png.freepik.com/512/6581/6581218.png", null, 0, 0),
+                new Thumbnail(System.getenv("LINK_PRODUCT_THUMBNAIL"), null, 0, 0),
                 null,
                 null,
                 null,
@@ -27,10 +27,10 @@ public class GrewEsxAddon extends MessageEmbed {
                 null,
                 Arrays.asList(
                         new Field("Requirements",
-                                ":arrow_forward: [es_extendet](https://github.com/esx-framework/esx_core)\n",
+                                System.getenv("LINK_WIKI_URL") + "/grew_esxaddon/required",
                                 false),
-                        new Field("Price", "2,50€ (+VAT)", true),
-                        new Field("Current Version", "v1.6.1", true),
+                        new Field("Price", "3,00€ (+VAT)", true),
+                        new Field("Current Version", "v1.6.5", true),
                         new Field("WIKI", System.getenv("LINK_WIKI_URL") + "/grew_esxaddon/readme", false),
                         new Field("Shop-Page", System.getenv("LINK_STORE_URL") + "/package/5454068", false),
                         new Field("Trailer", "coming-soon", false)
