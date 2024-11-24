@@ -5,6 +5,7 @@ import de.grewdev.embeds.selfrole.SelfruleDevEmbed;
 import de.grewdev.embeds.selfrole.SelfruleLanguageEmbed;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.UserSnowflake;
+import net.dv8tion.jda.api.entities.channel.ChannelType;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
 import net.dv8tion.jda.api.events.message.react.MessageReactionAddEvent;
@@ -45,6 +46,10 @@ public class MessageInteractionEventListener extends ListenerAdapter {
 
     @Override
     public void onMessageReactionAdd(MessageReactionAddEvent event) {
+        if (event.isFromType(ChannelType.PRIVATE)) {
+            return;
+        }
+
         TextChannel reactChan = event.getChannel().asTextChannel();
         String reactMsgId = event.getMessageId();
 
@@ -100,6 +105,10 @@ public class MessageInteractionEventListener extends ListenerAdapter {
 
     @Override
     public void onMessageReactionRemove(MessageReactionRemoveEvent event) {
+        if (event.isFromType(ChannelType.PRIVATE)) {
+            return;
+        }
+
         TextChannel reactChan = event.getChannel().asTextChannel();
         String reactMsgId = event.getMessageId();
 
