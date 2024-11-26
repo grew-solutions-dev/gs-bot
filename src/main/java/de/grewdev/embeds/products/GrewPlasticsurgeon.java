@@ -12,14 +12,14 @@ public class GrewPlasticsurgeon extends MessageEmbed {
                 null,
                 "Grew PlasticSurgeon",
                 """
-                        Grew plastic surgeon adds an NPC who can stand at the entry or at the hospital to approach a skin change for with/without money.
-                        A must for roleplay servers!
-
-                        If you have any questions, feel free to open an Ticket :)""",
+                        The "Grew Plasticsurgeon" script introduces a plastic surgeon to your game, allowing players to customize their outfits and facial features.
+                        All changes are saved permanently, adding a new layer of individuality and roleplay possibilities.
+                        With "Grew Plasticsurgeon," you can enhance your gameplay experience and create a more dynamic environment for all players!
+                """,
                 null,
                 null,
                 Color.DARK_GRAY.getRGB(),
-                new Thumbnail("https://dunb17ur4ymx4.cloudfront.net/packages/images/aaf9d5f8a7069a9863e2c3376e013d34f2d6c774.png", null, 0, 0),
+                new Thumbnail(System.getenv("LINK_PRODUCT_THUMBNAIL"), null, 0, 0),
                 null,
                 null,
                 null,
@@ -27,13 +27,10 @@ public class GrewPlasticsurgeon extends MessageEmbed {
                 null,
                 Arrays.asList(
                         new Field("Requirements",
-                                """
-                                        :arrow_forward: [es_extendet](https://github.com/esx-framework/esx_core)
-                                        :arrow_forward: [esx_skin](https://github.com/esx-framework/esx_core)
-                                        """,
+                                System.getenv("LINK_WIKI_URL") + "/grew_plasticsurgeon/required",
                                 false),
-                        new Field("Price", "4,50€ (+VAT)", true),
-                        new Field("Current Version", "v2.1.2", true),
+                        new Field("Price", "5,00€ (+VAT)", true),
+                        new Field("Current Version", "v2.2.0", true),
                         new Field("WIKI", System.getenv("LINK_WIKI_URL") + "/grew_plasticsurgeon/readme", false),
                         new Field("Shop-Page", System.getenv("LINK_STORE_URL") + "/package/5571869", false),
                         new Field("Trailer", "coming-soon", false)
