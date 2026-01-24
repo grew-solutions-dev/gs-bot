@@ -26,6 +26,7 @@ public class LinksEmbed extends MessageEmbed {
                         new Field(System.getenv("LINK_STORE_LABLE"), System.getenv("LINK_STORE_URL"), false),
                         new Field(System.getenv("LINK_WIKI_LABLE"), System.getenv("LINK_WIKI_URL"), false),
                         new Field(System.getenv("LINK_DISCORD_LABLE"), System.getenv("LINK_DISCORD_URL"), false),
+                        new Field(System.getenv("LINK_DEVDISCORD_LABLE"), System.getenv("LINK_DEVDISCORD_URL"), false),
                         new Field(System.getenv("LINK_DONATION_LABLE"), System.getenv("LINK_DONATION_URL"), false)
                 )
         );
