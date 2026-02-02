@@ -1,4 +1,4 @@
-# GS Bot
+# GS Bot (V2)
 
 Service Bot for Grew Solutions (JDA, Java, MySQL).
 
@@ -6,8 +6,12 @@ Service Bot for Grew Solutions (JDA, Java, MySQL).
 
 Rewrite branch: `rewrite`
 
-## Local setup (soon)
+## Requirements
 
-- Java 21 (or 17)
+- Java 22 (dev) / Java 21 LTS (recommended for server)
 - Maven
 - `.env` (see `.env.example`)
+
+## Run (temporary)
+
+Run `de.grewsolutions.gsb.App` in IntelliJ.
